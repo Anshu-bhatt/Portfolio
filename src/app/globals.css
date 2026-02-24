@@ -1,0 +1,436 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+}
+
+@layer base {
+  :root {
+    /* Terminal / Hacker Palette */
+    --background: #000000;
+    --foreground: #ffffff;
+    --card: #0a0a0a;
+    --card-foreground: #ffffff;
+    --popover: #0a0a0a;
+    --popover-foreground: #ffffff;
+    --primary: #ffffff;
+    --primary-foreground: #000000;
+    --secondary: #111111;
+    --secondary-foreground: #ffffff;
+    --muted: #1a1a1a;
+    --muted-foreground: #888888;
+    --accent: #f5a623;
+    /* amber/orange - single pop of color */
+    --accent-foreground: #000000;
+    --destructive: #ff3b30;
+    --destructive-foreground: #ffffff;
+    --border: #2a2a2a;
+    --input: #111111;
+    --ring: #ffffff;
+    --radius: 0rem;
+    /* sharp corners everywhere */
+
+    --font-mono: "Space Mono", "Courier New", monospace;
+    --font-display: "Barlow Condensed", "Arial Black", sans-serif;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    cursor: none;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-mono);
+    text-align: left;
+    overflow-x: hidden;
+  }
+
+  /* Noise texture overlay for terminal feel */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.25;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+  }
+
+  /* Utility: blinking cursor */
+  @keyframes blink {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  /* Utility: scanline flicker */
+  @keyframes scanline {
+    0% {
+      transform: translateY(-100%);
+    }
+
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  /* Matrix rain animation */
+  @keyframes matrix-rain {
+    0% {
+      transform: translateY(-100vh);
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+
+  /* Glitch animation */
+  @keyframes glitch {
+    0%, 100% {
+      transform: translateX(0);
+      filter: hue-rotate(0deg);
+    }
+    20% {
+      transform: translateX(-2px);
+      filter: hue-rotate(90deg);
+    }
+    40% {
+      transform: translateX(2px);
+      filter: hue-rotate(180deg);
+    }
+    60% {
+      transform: translateX(-1px);
+      filter: hue-rotate(270deg);
+    }
+    80% {
+      transform: translateX(1px);
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  /* Pulse animation for status indicators */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Data stream animation */
+  @keyframes data-stream {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100vw);
+      opacity: 0;
+    }
+  }
+
+  /* Circuit line animation */
+  @keyframes circuit-pulse {
+    0%, 100% {
+      opacity: 0.3;
+      box-shadow: 0 0 5px rgba(245, 166, 35, 0.3);
+    }
+    50% {
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(245, 166, 35, 0.8);
+    }
+  }
+
+  /* Typing animation */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  /* Corner bracket decoration */
+  .corner-bracket {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-color: #555555;
+    border-style: solid;
+  }
+
+  .corner-bracket-tl {
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+  }
+
+  .corner-bracket-tr {
+    top: 0;
+    right: 0;
+    border-width: 1px 1px 0 0;
+  }
+
+  .corner-bracket-bl {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 1px 1px;
+  }
+
+  .corner-bracket-br {
+    bottom: 0;
+    right: 0;
+    border-width: 0 1px 1px 0;
+  }
+
+  /* Grid background pattern */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Terminal text status */
+  .status-bar {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #555555;
+  }
+
+  /* Skill tag pill */
+  .skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid #2a2a2a;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: #cccccc;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .skill-tag:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+
+  .skill-tag::before {
+    content: "•";
+    color: #555555;
+  }
+
+  /* Display heading utility */
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  /* Matrix rain effect */
+  .matrix-rain {
+    position: absolute;
+    color: #0f0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    animation: matrix-rain 3s linear infinite;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Glitch text effect */
+  .glitch {
+    position: relative;
+    animation: glitch 2s infinite;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    animation: glitch 0.3s infinite;
+    color: #ff00ff;
+    z-index: -1;
+  }
+
+  .glitch::after {
+    animation: glitch 0.3s infinite reverse;
+    color: #00ffff;
+    z-index: -2;
+  }
+
+  /* Pulse status indicator */
+  .pulse {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Data stream lines */
+  .data-stream {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #f5a623, transparent);
+    animation: data-stream 4s linear infinite;
+  }
+
+  /* Circuit lines */
+  .circuit-line {
+    animation: circuit-pulse 3s ease-in-out infinite;
+  }
+
+  /* Typing effect */
+  .typing {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end);
+  }
+
+  /* Scan line overlay */
+  .scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff00, transparent);
+    animation: scanline 2s linear infinite;
+  }
+
+  /* Enhanced grid with animation */
+  .animated-grid {
+    background-image:
+      linear-gradient(rgba(245, 166, 35, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 166, 35, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: circuit-pulse 4s ease-in-out infinite;
+  }
+
+  /* Avatar scanning animation */
+  @keyframes scan {
+    0% {
+      top: 0%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+
+  /* Floating particles animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translateY(-10px) translateX(5px);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-20px) translateX(-5px);
+      opacity: 0.8;
+    }
+    75% {
+      transform: translateY(-15px) translateX(8px);
+      opacity: 1;
+    }
+  }
+}
