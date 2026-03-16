@@ -1,0 +1,103 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#0f0f0f"/>
+
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#333333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="600" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="600" y="80" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle" font-family="monospace">
+    DATA ANALYSIS SYSTEM
+  </text>
+
+  <!-- Left side: Bar Chart -->
+  <g id="bar-chart">
+    <!-- Chart title -->
+    <text x="150" y="130" font-size="18" fill="#ff8c00" font-family="monospace" font-weight="bold">
+      ANALYSIS METRICS
+    </text>
+
+    <!-- Bars -->
+    <rect x="90" y="280" width="50" height="160" fill="#ff8c00" opacity="0.8"/>
+    <rect x="160" y="300" width="50" height="140" fill="#ff8c00" opacity="0.7"/>
+    <rect x="230" y="250" width="50" height="190" fill="#ff8c00" opacity="0.9"/>
+    <rect x="300" y="310" width="50" height="130" fill="#ff8c00" opacity="0.75"/>
+
+    <!-- Grid lines for reference -->
+    <line x1="60" y1="200" x2="360" y2="200" stroke="#444444" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="60" y1="300" x2="360" y2="300" stroke="#444444" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="60" y1="400" x2="360" y2="400" stroke="#444444" stroke-width="1" stroke-dasharray="5,5"/>
+  </g>
+
+  <!-- Middle: Producer-Consumer Flow -->
+  <g id="flow">
+    <!-- Producer box -->
+    <rect x="450" y="200" width="120" height="80" fill="none" stroke="#6496ff" stroke-width="2"/>
+    <text x="510" y="245" font-size="14" fill="#6496ff" text-anchor="middle" font-family="monospace" font-weight="bold">
+      PRODUCER
+    </text>
+
+    <!-- Arrow -->
+    <path d="M 580 240 L 620 240" stroke="#ff8c00" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+    <!-- Consumer box -->
+    <rect x="630" y="200" width="120" height="80" fill="none" stroke="#6496ff" stroke-width="2"/>
+    <text x="690" y="245" font-size="14" fill="#6496ff" text-anchor="middle" font-family="monospace" font-weight="bold">
+      CONSUMER
+    </text>
+
+    <!-- Arrow marker definition -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#ff8c00" />
+      </marker>
+    </defs>
+
+    <!-- Data Flow label -->
+    <text x="600" y="320" font-size="12" fill="#999999" text-anchor="middle" font-family="monospace">
+      Data Pipeline
+    </text>
+  </g>
+
+  <!-- Right side: Line Chart -->
+  <g id="line-chart">
+    <!-- Chart title -->
+    <text x="950" y="130" font-size="18" fill="#6496ff" font-family="monospace" font-weight="bold">
+      PROCESSING TREND
+    </text>
+
+    <!-- Grid lines -->
+    <line x1="800" y1="200" x2="1100" y2="200" stroke="#444444" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="800" y1="300" x2="1100" y2="300" stroke="#444444" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="800" y1="400" x2="1100" y2="400" stroke="#444444" stroke-width="1" stroke-dasharray="5,5"/>
+
+    <!-- Line -->
+    <polyline points="820,350 860,280 900,320 940,260 980,310 1020,220 1060,280"
+              fill="none" stroke="#6496ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Data points -->
+    <circle cx="820" cy="350" r="5" fill="#6496ff"/>
+    <circle cx="860" cy="280" r="5" fill="#6496ff"/>
+    <circle cx="900" cy="320" r="5" fill="#6496ff"/>
+    <circle cx="940" cy="260" r="5" fill="#6496ff"/>
+    <circle cx="980" cy="310" r="5" fill="#6496ff"/>
+    <circle cx="1020" cy="220" r="5" fill="#6496ff"/>
+    <circle cx="1060" cy="280" r="5" fill="#6496ff"/>
+  </g>
+
+  <!-- Bottom: Technology tags -->
+  <g id="tech-tags">
+    <text x="100" y="550" font-size="12" fill="#999999" font-family="monospace">
+      Python • Jupyter • Docker • Data Pipeline
+    </text>
+  </g>
+
+  <!-- Decorative corner elements -->
+  <circle cx="80" cy="80" r="30" fill="none" stroke="#ff8c00" stroke-width="2" opacity="0.3"/>
+  <circle cx="1120" cy="520" r="30" fill="none" stroke="#6496ff" stroke-width="2" opacity="0.3"/>
+</svg>

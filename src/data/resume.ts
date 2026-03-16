@@ -80,6 +80,14 @@ export const resume = {
             tags: ["FastAPI", "Docling OCR", "Backend"],
             image: "/projects/complyone.png",
         },
+        {
+            title: "Intern Analysis System",
+            link: "github.com/Anshu-bhatt/intern-analysis-system",
+            description:
+                "Data analysis and processing system featuring a producer-consumer architecture for building scalable data pipelines. Implements exploratory data analysis using Jupyter Notebooks with Python, Docker Compose for containerization, and robust data handling workflows for analytical insights.",
+            tags: ["Python", "Jupyter", "Docker", "Data Analysis"],
+            image: "/projects/intern-analysis.png",
+        },
     ],
     certifications: [
         "Data structure and algorithm with JAVA by NPTEL",

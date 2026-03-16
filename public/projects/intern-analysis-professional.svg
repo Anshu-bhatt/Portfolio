@@ -1,0 +1,239 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#151515;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9600;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b00;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#222222" stroke-width="0.5"/>
+    </pattern>
+
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bgGradient)"/>
+  <rect width="1200" height="600" fill="url(#grid)" opacity="0.3"/>
+
+  <!-- Decorative top accent -->
+  <rect x="0" y="0" width="1200" height="2" fill="url(#orangeGrad)"/>
+
+  <!-- Title Section -->
+  <g id="title">
+    <text x="600" y="50" font-size="42" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Courier New', monospace" letter-spacing="2">
+      INTERN ANALYSIS SYSTEM
+    </text>
+    <rect x="200" y="65" width="800" height="2" fill="url(#orangeGrad)" opacity="0.5"/>
+  </g>
+
+  <!-- Left Section: Producer -->
+  <g id="producer-section">
+    <!-- Container -->
+    <rect x="50" y="120" width="280" height="440" fill="#0f0f0f" stroke="#333333" stroke-width="2" rx="8"/>
+    <rect x="50" y="120" width="280" height="50" fill="url(#orangeGrad)" opacity="0.1"/>
+
+    <!-- Title -->
+    <text x="190" y="155" font-size="18" font-weight="600" fill="#ff9600" text-anchor="middle" font-family="'Courier New', monospace">
+      PRODUCER
+    </text>
+
+    <!-- Icons and content -->
+    <!-- Database icon -->
+    <circle cx="120" cy="230" r="25" fill="none" stroke="#ff9600" stroke-width="2"/>
+    <rect x="105" y="215" width="30" height="30" fill="none" stroke="#ff9600" stroke-width="2" rx="2"/>
+    <line x1="105" y1="225" x2="135" y2="225" stroke="#ff9600" stroke-width="1"/>
+    <line x1="105" y1="235" x2="135" y2="235" stroke="#ff9600" stroke-width="1"/>
+
+    <!-- Data points -->
+    <circle cx="260" cy="230" r="4" fill="#ff9600"/>
+    <circle cx="260" cy="245" r="4" fill="#ff9600"/>
+    <circle cx="260" cy="260" r="4" fill="#ff9600"/>
+    <line x1="145" y1="230" x2="240" y2="230" stroke="#ff9600" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="145" y1="245" x2="240" y2="245" stroke="#ff9600" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="145" y1="260" x2="240" y2="260" stroke="#ff9600" stroke-width="1" stroke-dasharray="5,5"/>
+
+    <!-- Labels -->
+    <text x="120" y="310" font-size="12" fill="#999999" text-anchor="middle" font-family="'Courier New', monospace">
+      Data Source
+    </text>
+
+    <!-- Feature list -->
+    <text x="70" y="360" font-size="11" fill="#cccccc" font-family="'Courier New', monospace">
+      • Real-time Collection
+    </text>
+    <text x="70" y="385" font-size="11" fill="#cccccc" font-family="'Courier New', monospace">
+      • Aggregation
+    </text>
+    <text x="70" y="410" font-size="11" fill="#cccccc" font-family="'Courier New', monospace">
+      • Validation
+    </text>
+    <text x="70" y="435" font-size="11" fill="#cccccc" font-family="'Courier New', monospace">
+      • Stream Processing
+    </text>
+    <text x="70" y="460" font-size="11" fill="#cccccc" font-family="'Courier New', monospace">
+      • Queue Management
+    </text>
+  </g>
+
+  <!-- Middle Section: Pipeline -->
+  <g id="pipeline-section">
+    <!-- Arrow 1 (Producer to Pipeline) -->
+    <defs>
+      <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#ff9600"/>
+      </marker>
+      <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#00d4ff"/>
+      </marker>
+    </defs>
+
+    <path d="M 330 340 L 400 340" stroke="#ff9600" stroke-width="3" fill="none" marker-end="url(#arrowOrange)"/>
+
+    <!-- Pipeline Container -->
+    <rect x="400" y="200" width="400" height="280" fill="#0f0f0f" stroke="#ff9600" stroke-width="2" rx="8" opacity="0.8"/>
+
+    <!-- Pipeline title -->
+    <text x="600" y="230" font-size="16" font-weight="600" fill="#00d4ff" text-anchor="middle" font-family="'Courier New', monospace">
+      DATA PIPELINE
+    </text>
+
+    <!-- Process stages -->
+    <!-- Stage 1: Extract -->
+    <g id="stage1">
+      <circle cx="470" cy="320" r="20" fill="url(#blueGrad)" opacity="0.3" stroke="#00d4ff" stroke-width="2"/>
+      <text x="470" y="328" font-size="12" font-weight="600" fill="#00d4ff" text-anchor="middle" font-family="'Courier New', monospace">
+        E
+      </text>
+      <text x="470" y="360" font-size="10" fill="#999999" text-anchor="middle" font-family="'Courier New', monospace">
+        Extract
+      </text>
+    </g>
+
+    <!-- Stage 2: Transform -->
+    <g id="stage2">
+      <circle cx="570" cy="320" r="20" fill="url(#purpleGrad)" opacity="0.3" stroke="#a78bfa" stroke-width="2"/>
+      <text x="570" y="328" font-size="12" font-weight="600" fill="#a78bfa" text-anchor="middle" font-family="'Courier New', monospace">
+        T
+      </text>
+      <text x="570" y="360" font-size="10" fill="#999999" text-anchor="middle" font-family="'Courier New', monospace">
+        Transform
+      </text>
+    </g>
+
+    <!-- Stage 3: Load -->
+    <g id="stage3">
+      <circle cx="670" cy="320" r="20" fill="url(#blueGrad)" opacity="0.3" stroke="#00d4ff" stroke-width="2"/>
+      <text x="670" y="328" font-size="12" font-weight="600" fill="#00d4ff" text-anchor="middle" font-family="'Courier New', monospace">
+        L
+      </text>
+      <text x="670" y="360" font-size="10" fill="#999999" text-anchor="middle" font-family="'Courier New', monospace">
+        Load
+      </text>
+    </g>
+
+    <!-- Stage 4: Analyze -->
+    <g id="stage4">
+      <circle cx="770" cy="320" r="20" fill="url(#purpleGrad)" opacity="0.3" stroke="#a78bfa" stroke-width="2"/>
+      <text x="770" y="328" font-size="12" font-weight="600" fill="#a78bfa" text-anchor="middle" font-family="'Courier New', monospace">
+        A
+      </text>
+      <text x="770" y="360" font-size="10" fill="#999999" text-anchor="middle" font-family="'Courier New', monospace">
+        Analyze
+      </text>
+    </g>
+
+    <!-- Connectors -->
+    <line x1="490" y1="320" x2="550" y2="320" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="590" y1="320" x2="650" y2="320" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="690" y1="320" x2="750" y2="320" stroke="#333333" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <!-- Technologies -->
+    <text x="600" y="440" font-size="11" fill="#666666" text-anchor="middle" font-family="'Courier New', monospace">
+      Python • Jupyter • Docker • Pandas
+    </text>
+  </g>
+
+  <!-- Arrow 2 (Pipeline to Consumer) -->
+  <path d="M 800 340 L 870 340" stroke="#00d4ff" stroke-width="3" fill="none" marker-end="url(#arrowBlue)"/>
+
+  <!-- Right Section: Consumer -->
+  <g id="consumer-section">
+    <!-- Container -->
+    <rect x="870" y="120" width="280" height="440" fill="#0f0f0f" stroke="#333333" stroke-width="2" rx="8"/>
+    <rect x="870" y="120" width="280" height="50" fill="url(#blueGrad)" opacity="0.1"/>
+
+    <!-- Title -->
+    <text x="1010" y="155" font-size="18" font-weight="600" fill="#00d4ff" text-anchor="middle" font-family="'Courier New', monospace">
+      CONSUMER
+    </text>
+
+    <!-- Chart visualization -->
+    <!-- Bar chart -->
+    <rect x="905" y="240" width="25" height="60" fill="url(#blueGrad)" opacity="0.8"/>
+    <rect x="935" y="260" width="25" height="40" fill="url(#blueGrad)" opacity="0.6"/>
+    <rect x="965" y="220" width="25" height="80" fill="url(#blueGrad)" opacity="0.8"/>
+    <rect x="995" y="250" width="25" height="50" fill="url(#blueGrad)" opacity="0.7"/>
+
+    <!-- Y-axis -->
+    <line x1="900" y1="300" x2="900" y2="200" stroke="#333333" stroke-width="1"/>
+    <!-- X-axis -->
+    <line x1="900" y1="300" x2="1030" y2="300" stroke="#333333" stroke-width="1"/>
+
+    <!-- Labels -->
+    <text x="1010" y="330" font-size="12" fill="#999999" text-anchor="middle" font-family="'Courier New', monospace">
+      Analytics Dashboard
+    </text>
+
+    <!-- Feature list -->
+    <text x="890" y="380" font-size="11" fill="#cccccc" font-family="'Courier New', monospace">
+      • Real-time Insights
+    </text>
+    <text x="890" y="405" font-size="11" fill="#cccccc" font-family="'Courier New', monospace">
+      • Visualization
+    </text>
+    <text x="890" y="430" font-size="11" fill="#cccccc" font-family="'Courier New', monospace">
+      • Storage & Caching
+    </text>
+    <text x="890" y="455" font-size="11" fill="#cccccc" font-family="'Courier New', monospace">
+      • API Integration
+    </text>
+    <text x="890" y="480" font-size="11" fill="#cccccc" font-family="'Courier New', monospace">
+      • Report Generation
+    </text>
+  </g>
+
+  <!-- Bottom accent line -->
+  <rect x="0" y="598" width="1200" height="2" fill="url(#orangeGrad)"/>
+
+  <!-- Floating data points animation elements -->
+  <g id="floating-data" opacity="0.3">
+    <circle cx="300" cy="100" r="3" fill="#ff9600"/>
+    <circle cx="600" cy="550" r="3" fill="#00d4ff"/>
+    <circle cx="900" cy="150" r="3" fill="#a78bfa"/>
+  </g>
+</svg>
